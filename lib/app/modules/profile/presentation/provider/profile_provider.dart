@@ -7,6 +7,7 @@ class ProfileProvider extends ChangeNotifier {
 
   UserProfile _userProfile = UserProfile(name: '', email: '');
   bool isLoading = true;
+  MaterialColor profileColor = Colors.amber;
   ProfileProvider(this._repository) {
     _loadUserProfile();
   }
