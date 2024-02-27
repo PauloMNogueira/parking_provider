@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:parking_provider/app/modules/home/presentation/provider/home.provider.dart';
-import 'package:parking_provider/app/modules/home/presentation/ui/page/home_page.dart';
 import 'package:parking_provider/app/modules/profile/infra/profile_repository.dart';
-import 'package:parking_provider/app/modules/profile/presentation/page/profile_page.dart';
 import 'package:parking_provider/app/modules/profile/presentation/provider/profile_provider.dart';
-import 'package:parking_provider/app/modules/splash/presentation/page/splash_page.dart';
 import 'package:parking_provider/app/services/environment.service.dart';
 import 'package:parking_provider/app/services/navigation.service.dart';
+import 'package:parking_provider/app/services/routes.service.dart';
 import 'package:parking_provider/app/services/super_module/basic_route.service.dart';
 import 'package:parking_provider/app/services/super_module/dio_http.service.dart';
 import 'package:parking_provider/app/services/super_module/local_storage.service.dart';
@@ -29,12 +27,7 @@ Future<void> main() async {
       secureStorageService: LocalStorageService(),
       appProvider: ProviderService());
 
-  runtime.routeService
-      .registerRoute("/splash-screen", (context) => const SplashPage());
-  runtime.routeService.registerRoute(
-      "/", (context) => const MyHomePage(title: 'Página Inicial'));
-  runtime.routeService
-      .registerRoute("/profile", (context) => const ProfilePage());
+  AppRoutes().registerRoutes(runtime);
 
   runtime.appProvider.registerServiceProvider(HomeProvider());
 
@@ -47,7 +40,6 @@ Future<void> main() async {
         ChangeNotifierProvider(
             create: (context) => ProfileProvider(
                 ProfileRepositoryImpl(httpService: runtime.httpService)))
-        // Provider<PushNotificationService>.value(value: PushNotificationService()),
       ],
       child: const MyApp(),
     ),
