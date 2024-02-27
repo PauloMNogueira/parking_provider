@@ -19,8 +19,8 @@ class ProfileProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> updateProfile(UserProfile newProfile) async {
-    // await _repository.updateUserProfile(newProfile);
+  Future<void> updateProfile() async {
+    final newProfile = await _repository.updateUserProfile();
     _userProfile = newProfile;
     notifyListeners();
   }

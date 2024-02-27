@@ -52,8 +52,8 @@ class DioHttpService extends HttpService {
   @override
   Future<JsonResponse> get(String uri) async {
     var response = await _driver.get(uri);
-    return JsonResponse(
-        statusCode: response.statusCode ?? -1, data: response.data);
+    final Map<String, dynamic> result = {'data': response.data};
+    return JsonResponse(statusCode: response.statusCode ?? -1, data: result);
   }
 
   @override

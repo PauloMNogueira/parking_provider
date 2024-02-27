@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:parking_provider/app/modules/profile/domain/user_profile_entity.dart';
 import 'package:parking_provider/app/modules/profile/presentation/provider/profile_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -29,13 +28,10 @@ class ProfilePage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
           onPressed: () {
-            final newProfile = UserProfile(
-                name: 'Paulo Nogueira',
-                email: 'paulomarceloa.nogueira@gmail.com');
             Provider.of<ProfileProvider>(context, listen: false)
-                .updateProfile(newProfile);
+                .updateProfile();
           },
-          child: Icon(Icons.edit)),
+          child: const Icon(Icons.swap_horiz_sharp)),
     );
   }
 }

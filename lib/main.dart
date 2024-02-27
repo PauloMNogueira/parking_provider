@@ -45,7 +45,8 @@ Future<void> main() async {
         Provider<AppRuntime>.value(value: runtime),
         Provider<NavigationService>.value(value: AppNavigationService()),
         ChangeNotifierProvider(
-            create: (context) => ProfileProvider(ProfileRepositoryImpl()))
+            create: (context) => ProfileProvider(
+                ProfileRepositoryImpl(httpService: runtime.httpService)))
         // Provider<PushNotificationService>.value(value: PushNotificationService()),
       ],
       child: const MyApp(),

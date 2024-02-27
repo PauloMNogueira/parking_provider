@@ -2,5 +2,5 @@ import 'package:parking_provider/app/modules/profile/domain/user_profile_entity.
 
 abstract class ProfileRepository {
   Future<UserProfile> getUserProfile();
-  Future<void> updateUserProfile(UserProfile userProfile);
+  Future<UserProfile> updateUserProfile();
 }
