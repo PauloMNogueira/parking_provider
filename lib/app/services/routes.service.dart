@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:parking_provider/app/modules/home/presentation/ui/page/home_page.dart';
+import 'package:parking_provider/app/modules/movie/presentation/page/discovery_page.dart';
 import 'package:parking_provider/app/modules/profile/presentation/page/details_page.dart';
 import 'package:parking_provider/app/modules/profile/presentation/page/profile_page.dart';
 import 'package:parking_provider/app/modules/profile/presentation/provider/profile_provider.dart';
@@ -18,6 +19,10 @@ class AppRoutes {
     // Register Profile Route
     runtime.routeService
         .registerRoute("/profile", (context) => const ProfilePage());
+
+    // Register Movie Discovery Route
+    runtime.routeService.registerRoute(
+        "/movie/discovery", (context) => const MovieDiscoveryPage());
 
     // Register Profile Details Route
     runtime.routeService

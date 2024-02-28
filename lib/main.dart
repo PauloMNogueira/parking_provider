@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:parking_provider/app/modules/home/presentation/provider/home.provider.dart';
+import 'package:parking_provider/app/modules/movie/infra/movie_repository.dart';
+import 'package:parking_provider/app/modules/movie/presentation/provider/discovery_provider.dart';
 import 'package:parking_provider/app/modules/profile/infra/profile_repository.dart';
 import 'package:parking_provider/app/modules/profile/presentation/provider/profile_provider.dart';
 import 'package:parking_provider/app/services/environment.service.dart';
@@ -39,7 +41,10 @@ Future<void> main() async {
         Provider<NavigationService>.value(value: AppNavigationService()),
         ChangeNotifierProvider(
             create: (context) => ProfileProvider(
-                ProfileRepositoryImpl(httpService: runtime.httpService)))
+                ProfileRepositoryImpl(httpService: runtime.httpService))),
+        ChangeNotifierProvider(
+            create: (context) => DiscoveryProvider(
+                MovieRepositoryImpl(httpService: runtime.httpService))),
       ],
       child: const MyApp(),
     ),

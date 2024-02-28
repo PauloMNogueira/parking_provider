@@ -34,6 +34,13 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ElevatedButton(
                 onPressed: () {
+                  context
+                      .read<NavigationService>()
+                      .goTo(context, '/movie/discovery');
+                },
+                child: const Text('Ver filmes')),
+            ElevatedButton(
+                onPressed: () {
                   context.read<NavigationService>().goTo(context, '/profile');
                 },
                 child: const Text('Ir pro Perfil'))

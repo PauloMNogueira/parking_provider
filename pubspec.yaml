@@ -43,6 +43,7 @@ dependencies:
     git:
       url: git@github.com:NEJCPM/super_module.git
       ref: main
+  flutter_carousel_widget: ^2.2.0
 
 dev_dependencies:
   flutter_test:
